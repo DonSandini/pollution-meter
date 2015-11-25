@@ -2,9 +2,9 @@
  * Created by Sasho on 25/11/2015.
  */
 
-modile.exports = {
+module.exports = {
     entry: './main.js',
-    outut: {
+    output: {
         path: './',
         filename: 'index.js'
     },
