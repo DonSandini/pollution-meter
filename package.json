@@ -1,0 +1,24 @@
+{
+  "name": "pollute-meter",
+  "version": "1.0.0",
+  "description": "Pollution Meter for big cities.",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server"
+  },
+  "author": "Alexander Georgiev",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DonSandini/pollution-meter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DonSandini/pollution-meter/issues"
+  },
+  "homepage": "https://github.com/DonSandini/pollution-meter#readme"
+}
