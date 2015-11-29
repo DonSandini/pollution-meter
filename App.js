@@ -4,6 +4,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+require("./stylesheets/app.less");
+
 var App = React.createClass({
     getInitialState() {
         return {
@@ -26,7 +28,7 @@ var App = React.createClass({
             return xhr;
         }
 
-        var request = createCORSRequest("get", this.props.source);
+        /*var request = createCORSRequest("get", this.props.source);
         if (request){
             request.onload = function(response){
                 //do something with request.responseText
@@ -35,14 +37,20 @@ var App = React.createClass({
                 //TODO emit an event and handle response there!
             };
             request.send();
-        }
+        }*/
     },
 
     render() {
         return (
             <div>
+                <h1>Wellcome to Pollution Meter</h1>
                 {this.state.username}'s last gist is
                 <a href={this.state.lastGistUrl}>here</a>.
+                <form id="pollution-filter" action="">
+                    <input type="text"/>
+                    <input type="submit"/>
+                </form>
+                
             </div>
         );
     }

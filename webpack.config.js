@@ -1,6 +1,7 @@
 /**
  * Created by Sasho on 25/11/2015.
  */
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: './main.js',
@@ -21,7 +22,21 @@ module.exports = {
                 query: {
                     presets: ['es2015' , 'react']
                 }
+            },
+            {
+                test: /\.less$/,
+                loader: ExtractTextPlugin.extract(
+                    // activate source maps via loader query
+                    'css?sourceMap!' +
+                    'less?sourceMap'
+                )
             }
         ]
-    }
+    },
+    plugins: [
+        // extract inline css into separate 'styles.css'
+        new ExtractTextPlugin('./stylesheets/app.css')
+    ]
+
 };
+
