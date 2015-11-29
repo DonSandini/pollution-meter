@@ -13,22 +13,26 @@ var App = React.createClass({
     },
 
     componentDidMount() {
-        var newName = 'John Smith',
-            xhr = new XMLHttpRequest();
-
-        xhr.open('POST',
-            encodeURI(this.props.source));
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.onload = function() {
-            if (xhr.status === 200 && xhr.responseText !== newName) {
-                debugger;
+        function createCORSRequest(method, url){
+            var xhr = new XMLHttpRequest();
+            if ("withCredentials" in xhr){
+                xhr.open(method, url, true);
+            } else if (typeof XDomainRequest != "undefined"){
+                xhr = new XDomainRequest();
+                xhr.open(method, url);
+            } else {
+                xhr = null;
             }
-            else if (xhr.status !== 200) {
-                debugger;
-            }
-        };
-        xhr.send(encodeURI('name=' + newName));
+            return xhr;
+        }
 
+        var request = createCORSRequest("get", this.props.source);
+        if (request){
+            request.onload = function(){
+                //do something with request.responseText
+            };
+            request.send();
+        }
     },
 
     render() {
@@ -41,6 +45,6 @@ var App = React.createClass({
     }
 });
 
-ReactDOM.render(<App source="https://api.github.com/users/octocat/gists" />, document.getElementById('app'));
+ReactDOM.render(<App source="https://api.breezometer.com/baqi/?location=5th+avenue+new+york+ny+united+states&key=7d47bdacd8f147f8bee081b7f3728fa9" />, document.getElementById('app'));
 
 export default App
