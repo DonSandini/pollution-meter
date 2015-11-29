@@ -28,8 +28,11 @@ var App = React.createClass({
 
         var request = createCORSRequest("get", this.props.source);
         if (request){
-            request.onload = function(){
+            request.onload = function(response){
                 //do something with request.responseText
+                let test = JSON.parse(response.currentTarget.responseText);
+                debugger;
+                //TODO emit an event and handle response there!
             };
             request.send();
         }
