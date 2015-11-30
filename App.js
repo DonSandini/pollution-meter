@@ -3,8 +3,11 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Constants from './constants';
 
 require("./stylesheets/app.less");
+
+var ConstantsStore = Constants;
 
 var App = React.createClass({
     getInitialState() {
@@ -41,21 +44,21 @@ var App = React.createClass({
     },
 
     render() {
+
+
+                //{this.state.username}'s last gist is
+                //<a href={this.state.lastGistUrl}>here</a>.
         return (
-            <div>
-                <h1>Wellcome to Pollution Meter</h1>
-                {this.state.username}'s last gist is
-                <a href={this.state.lastGistUrl}>here</a>.
-                <form id="pollution-filter" action="">
-                    <input type="text"/>
-                    <input type="submit"/>
+            <div className="pollution-filter">
+                <h1>{ Constants.MESSAGE_WELCOME }</h1>
+                <form id="filter" action="">
+                    <input className="input-text" type="text" placeholder="Please type a location"/>
+                    <input className="input-submit" type="submit"/>
                 </form>
-                
             </div>
         );
     }
 });
 
-ReactDOM.render(<App source="https://api.breezometer.com/baqi/?location=5th+avenue+new+york+ny+united+states&key=7d47bdacd8f147f8bee081b7f3728fa9" />, document.getElementById('app'));
-
+ReactDOM.render(<App source={ ConstantsStore.API_URL_BREEZOMETER } />, document.getElementById('app'));
 export default App
