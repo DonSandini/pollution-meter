@@ -1,0 +1,32 @@
+{
+  "client_id": "784302825885-4f18fri21ib1cjq5ujpbegpuc16or668.apps.googleusercontent.com",
+  "libraries": [
+    {
+      "name": "compute",
+      "version": "v1"
+    },
+    {
+      "name": "drive",
+      "version": "v2"
+    },
+    {
+      "name": "gmail",
+      "version": "v1"
+    },
+    {
+      "name": "calendar",
+      "version": "v3"
+    },
+    {
+      "name": "all the other libs you wont to work with",
+      "version": "v3"
+    }
+
+  ],
+  "scopes": [
+    "profile scope added automatically",
+    "https://www.googleapis.com/auth/compute.readonly",
+    "https://www.googleapis.com/auth/compute",
+    "https://www.googleapis.com/auth/cloud-platform"
+  ]
+}

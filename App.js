@@ -53,7 +53,7 @@ var App = React.createClass({
                 <h1>{ Constants.MESSAGE_WELCOME }</h1>
                 <form id="filter" action="">
                     <input className="input-text" type="text" placeholder="Please type a location"/>
-                    <input className="input-submit" type="submit"/>
+                    <input className="input-submit" onClick="" type="submit"/>
                 </form>
             </div>
         );
