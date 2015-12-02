@@ -8,10 +8,11 @@ var googleApiLoader = require('../services/GoogleAPILoader');
 
 
 module.exports = React.createClass({
-    getInitialState: function () {
+
+    getInitialState () {
         return {};
     },
-    componentDidMount: function () {
+    componentDidMount () {
         var _this = this;
 
         googleApiLoader.authLoaded(function () {
@@ -36,29 +37,40 @@ module.exports = React.createClass({
             _this.setState({clientsLoaded: true});
         });
     },
-    toggleSignIn: function () {
+    toggleSignIn () {
         if (!googleApiLoader.getAuth2().isSignedIn.get())
             googleApiLoader.signIn();
     },
-    render: function () {
+    toggleSignOut () {
+        var _this = this;
+        if (googleApiLoader.getAuth2().isSignedIn.get())
+            googleApiLoader.signOut();
+    },
+    render () {
+
+        var _this = this;
 
         var loggedInUserThumb = null;
 
         if (this.state.loggedInUser)
             loggedInUserThumb = <img src={this.state.loggedInUser.thumb} />
 
-        var toggleLoginButton = <button onClick={this.toggleSignIn}>Login to Google</button>
-
+        var toggleLoginButton = <button onClick={this.toggleSignIn}>Login to Google</button>;
+        var toggleLogOutButton = <button onClick={this.toggleSignOut}>Logout</button>;
         if (this.state.finishedLoading) {
 
             if (this.state.isLoggedIn) {
 
-                return <div>
-                    {loggedInUserThumb}
-                    {this.state.loggedInUser.name}
-                    <hr />
-                    You're now free to use the Google APIs!
-                </div>
+                return (
+                    <div>
+                        {loggedInUserThumb}
+                        {this.state.loggedInUser.name}
+                        <hr />
+                        You're now free to use the Google APIs!
+                        <br/>
+                        { toggleLogOutButton}
+                    </div>
+                )
             }
             else
                 return toggleLoginButton;

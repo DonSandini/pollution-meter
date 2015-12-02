@@ -1,6 +1,6 @@
 'use strict'
 
-var app_settings = require("json!./../app_settings.json");
+var app_settings = require("json!../../app_settings.json");
 
 var clientsLoaded = 0;
 
@@ -39,7 +39,7 @@ module.exports = {
                     check();
                 }, 50);
             }
-        }
+        };
 
         check();
     },
@@ -67,6 +67,13 @@ module.exports = {
         });
 
         this.getAuth2().signIn(options).then(function (success) {
+        }, function (fail) {
+        });
+    },
+    signOut: function (callback) {
+        this.getAuth2().signOut().then(function (success) {
+            console.log('User signed out.');
+            location.reload();
         }, function (fail) {
         });
     }

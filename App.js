@@ -6,6 +6,7 @@
  */
 import React from 'react';
 import Filter from './app/views/filter.js';
+import LoginOut from './app/views/loginout.js';
 import Constants from './constants.js';
 
 class App extends React.Component {
@@ -14,7 +15,10 @@ class App extends React.Component {
     }
     render() {
         return (
-            <Filter />
+            <div>
+                <LoginOut />
+                <Filter />
+            </div>
         )
     }
 }
