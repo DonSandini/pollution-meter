@@ -47,7 +47,10 @@ module.exports = React.createClass({
             googleApiLoader.signOut();
     },
     render () {
-
+        //TODO separate login and logout views
+        //Add modal login screen if not logged
+        //Show map on login
+        //add filter
         var _this = this;
 
         var loggedInUserThumb = null;
