@@ -16,6 +16,7 @@ module.exports = React.createClass({
         var _this = this;
 
         googleApiLoader.authLoaded(function () {
+            debugger;
             _this.setState({authLoaded: true});
 
             googleApiLoader.getAuth2().currentUser.listen(function (user) {
@@ -65,7 +66,7 @@ module.exports = React.createClass({
             if (this.state.isLoggedIn) {
 
                 return (
-                    <div>
+                    <div className="login-panel">
                         {loggedInUserThumb}
                         {this.state.loggedInUser.name}
                         <hr />

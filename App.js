@@ -5,9 +5,9 @@
  * Created by Sasho on 01/12/2015.
  */
 import React from 'react';
-import Filter from './app/views/filter.js';
-import LoginOut from './app/views/loginout.js';
-import Constants from './constants.js';
+import Filter from './app/views/filter';
+import LoginOut from './app/views/loginout';
+import Constants from './constants';
 
 require("./public/stylesheets/app.less");
 

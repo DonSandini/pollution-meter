@@ -76,8 +76,17 @@ module.exports = {
             location.reload();
         }, function (fail) {
         });
+    },
+
+    isLoggedIn: function() {
+        var logged = this.getAuth2().currentUser.listen(function (user) {
+            return user.getBasicProfile() ? true : false;
+        });
+        return logged;
     }
 };
+
+
 
 
 module.exports.gapiLoaded(function () {
