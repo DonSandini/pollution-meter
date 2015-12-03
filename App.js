@@ -9,6 +9,8 @@ import Filter from './app/views/filter.js';
 import LoginOut from './app/views/loginout.js';
 import Constants from './constants.js';
 
+require("./public/stylesheets/app.less");
+
 class App extends React.Component {
     defineStateProperty () {
         return {};

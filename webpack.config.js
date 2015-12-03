@@ -35,7 +35,7 @@ module.exports = {
     },
     plugins: [
         // extract inline css into separate 'styles.css'
-        new ExtractTextPlugin('./stylesheets/app.css')
+        new ExtractTextPlugin('./public/stylesheets/app.css')
     ]
 
 };
